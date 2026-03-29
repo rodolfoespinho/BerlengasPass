@@ -94,7 +94,7 @@ const ParallaxImg = ({src, alt, height=400, speed=0.4, style={}, imgStyle={}}) =
 
 /* ══ HELPERS ═════════════════════════════════════════════ */
 const TD = new Date(); TD.setHours(0,0,0,0);
-const iso = d => d.toISOString().split("T")[0];
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const getAge = (dob, visit) => {
   const d = new Date(dob), v = new Date(visit);
   let a = v.getFullYear() - d.getFullYear();
