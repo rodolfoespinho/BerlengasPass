@@ -358,6 +358,12 @@ const Nav = ({ nav, user, onLogin, onLogout, dark=false, scrolled=false }) => {
         <div style={{maxWidth:760,margin:"0 auto",padding:"0 16px",height:56,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
           <Logo light={isLight} onClick={()=>nav("landing")}/>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
+            {user && (user.role==="operator"||user.role==="admin") && (
+              <button onClick={()=>nav(user.role==="admin"?"dashboard":"operator")} style={{padding:"6px 12px",background:isLight?"rgba(255,255,255,0.1)":"var(--og)",border:isLight?"1px solid rgba(255,255,255,0.15)":"1px solid var(--bd)",borderRadius:10,cursor:"pointer",fontSize:12,fontWeight:600,color:isLight?"#fff":"var(--ol)",fontFamily:"var(--fb)",display:"flex",alignItems:"center",gap:5}}>
+                <IconMap name={user.role==="admin"?"barchart3":"clipboardlist"} size={13} color={isLight?"#fff":"var(--ol)"}/>
+                {user.role==="admin"?"Dashboard":"Operador"}
+              </button>
+            )}
             {user ? (
               <button onClick={onLogout} style={{display:"flex",alignItems:"center",gap:7,background:isLight?"rgba(255,255,255,0.1)":"var(--og)",border:isLight?"1px solid rgba(255,255,255,0.15)":"1px solid var(--bd)",borderRadius:10,padding:"6px 12px",cursor:"pointer"}}>
                 <div style={{width:22,height:22,borderRadius:"50%",background:"var(--ol)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:700,color:"#fff"}}>{user.name[0].toUpperCase()}</div>
