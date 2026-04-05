@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Analytics } from '@vercel/analytics/react';
 import { Sunrise, Sun, Waves, Crown, Search, User, Leaf, MapPin, CreditCard, Smartphone, Landmark, Lock, ShieldCheck, FileText, Printer, Save, Building2, Zap, BarChart3, CalendarDays, CheckCircle2, Ban, Bird, Trash2, Flame, Camera, Anchor, Info, Mail, ClipboardList, TrendingUp, Download } from 'lucide-react';
 const IconMap = ({name, size=18, color, style, className}) => { const M = {sunrise:Sunrise,sun:Sun,waves:Waves,crown:Crown,search:Search,user:User,leaf:Leaf,mappin:MapPin,creditcard:CreditCard,smartphone:Smartphone,landmark:Landmark,lock:Lock,shieldcheck:ShieldCheck,filetext:FileText,printer:Printer,save:Save,building2:Building2,zap:Zap,barchart3:BarChart3,calendardays:CalendarDays,checkcircle2:CheckCircle2,ban:Ban,bird:Bird,trash2:Trash2,flame:Flame,camera:Camera,anchor:Anchor,info:Info,mail:Mail,clipboardlist:ClipboardList,trendingup:TrendingUp,download:Download}; const I=M[name]; return I?<I size={size} color={color} style={style} className={className}/>:null; };
 
@@ -1677,6 +1678,7 @@ export default function App() {
         {view==="terms" && <Terms {...common}/>}
       </div>
       {showLogin && <LoginModal onClose={()=>setShowLogin(false)} onLogin={handleLogin}/>}
+      <Analytics />
     </>
   );
 }
